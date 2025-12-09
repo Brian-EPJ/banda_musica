@@ -9,12 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * {margin:0;padding:0;box-sizing:border-box;}
         body {
             font-family: 'Roboto Condensed', sans-serif;
             background: #050505 url('/img/fondo.jpeg') no-repeat center center fixed;
@@ -22,37 +17,31 @@
             color: #e0e0e0;
             line-height: 1.6;
         }
+        .container { max-width: 1000px; margin:0 auto; padding:20px; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* ========================= HEADER ========================= */
+        /* HEADER */
         header {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0,0,0,0.85);
             border-bottom: 4px solid #c41e3a;
-            padding: 35px 0;
+            padding: 35px 20px;
             margin-bottom: 40px;
-            box-shadow: 0 0 25px rgba(200, 0, 0, 0.5);
+            box-shadow: 0 0 25px rgba(200,0,0,0.5);
             backdrop-filter: blur(4px);
+            position: relative;
         }
-
         header h1 {
             font-family: 'Metal Mania', cursive;
             color: #c41e3a;
             text-align: center;
-            font-size: 3.8rem;
+            font-size: 3.2rem;
             letter-spacing: 4px;
-            text-shadow: 0 0 15px rgba(200, 0, 0, 0.7);
+            text-shadow:0 0 15px rgba(200,0,0,0.7);
         }
 
         nav {
             text-align: center;
             margin-top: 18px;
         }
-
         nav a {
             color: #e0e0e0;
             text-decoration: none;
@@ -60,167 +49,128 @@
             margin: 0 10px;
             font-weight: 600;
             border-bottom: 2px solid transparent;
-            transition: 0.3s;
+            transition:0.3s;
         }
+        nav a:hover { color:#c41e3a; border-bottom:2px solid #c41e3a; text-shadow:0 0 8px rgba(255,50,50,0.7); }
 
-        nav a:hover {
-            color: #c41e3a;
-            border-bottom: 2px solid #c41e3a;
-            text-shadow: 0 0 8px rgba(255, 50, 50, 0.7);
+        /* HAMBURGER MENU */
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            top: 30px;
+            right: 25px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor:pointer;
         }
+        .menu-toggle span { display:block; height:3px; background:#c41e3a; border-radius:2px; }
 
-        /* ========================= SECCIONES ========================= */
+        /* SECCIONES */
         .section {
-            background: rgba(5, 5, 5, 0.9);
+            background: rgba(5,5,5,0.9);
             padding: 35px;
             margin-bottom: 40px;
-            border: 1px solid #3a0f12;
-            border-radius: 10px;
-            box-shadow: 0 0 25px rgba(150, 0, 0, 0.5);
-            backdrop-filter: blur(3px);
+            border:1px solid #3a0f12;
+            border-radius:10px;
+            box-shadow:0 0 25px rgba(150,0,0,0.5);
+            backdrop-filter:blur(3px);
         }
-
         .section h2 {
-            font-family: 'Metal Mania', cursive;
-            color: #c41e3a;
-            font-size: 2.9rem;
-            text-align: center;
-            letter-spacing: 2px;
-            border-bottom: 3px solid rgba(196, 30, 58, 0.8);
-            padding-bottom: 12px;
-            margin-bottom: 25px;
-            text-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+            font-family:'Metal Mania', cursive;
+            color:#c41e3a;
+            font-size:2.6rem;
+            text-align:center;
+            letter-spacing:2px;
+            border-bottom:3px solid rgba(196,30,58,0.8);
+            padding-bottom:12px;
+            margin-bottom:25px;
+            text-shadow:0 0 12px rgba(255,0,0,0.5);
         }
 
-        .banda-info p {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #d0d0d0;
-        }
+        .banda-info p { font-size:1.2rem; margin-bottom:15px; color:#d0d0d0; }
+        .banda-info strong { color:#ff2f2f; font-size:1.25rem; letter-spacing:1px; }
 
-        .banda-info strong {
-            color: #ff2f2f;
-            font-size: 1.35rem;
-            letter-spacing: 1px;
-        }
-
-        /* ========================= MIEMBROS ========================= */
+        /* MIEMBROS */
         .miembros-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+            gap:25px;
+            margin-top:20px;
         }
-
         .miembro-card {
-            background: linear-gradient(145deg, #0d0d0d, #1a0a0a);
-            border: 1px solid #3c0000;
-            padding: 25px;
-            text-align: center;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0px 0px 12px rgba(196, 30, 58, 0.3);
+            background: linear-gradient(145deg,#0d0d0d,#1a0a0a);
+            border:1px solid #3c0000;
+            padding:25px;
+            text-align:center;
+            border-radius:12px;
+            transition:all 0.3s ease;
+            box-shadow:0px 0px 12px rgba(196,30,58,0.3);
         }
+        .miembro-card:hover { transform:translateY(-6px) scale(1.05); border-color:#c41e3a; box-shadow:0px 0px 25px rgba(196,30,58,0.7);}
+        .miembro-card h3 { font-size:1.6rem; color:#fff; margin-bottom:12px; text-shadow:0px 0px 10px rgba(255,50,80,0.5);}
+        .miembro-card p { color:#c41e3a; font-size:1.15rem; font-weight:bold;}
+        .miembro-card small { color:#d4d4d4; font-size:1rem; font-weight:600; letter-spacing:0.5px; display:block; margin-top:14px; padding-top:10px; border-top:1px solid rgba(196,30,58,0.4);}
+        .badge-activo, .badge-ex { padding:8px 14px; border-radius:4px; font-size:0.9rem; font-weight:bold; display:inline-block; letter-spacing:1px; margin-top:12px; }
+        .badge-activo { background:linear-gradient(90deg,#28a745,#3ecf5a); color:black; box-shadow:0px 0px 10px rgba(40,167,69,0.5);}
+        .badge-ex { background:linear-gradient(90deg,#555,#777); color:#fff; box-shadow:0px 0px 8px rgba(150,150,150,0.4); }
 
-        .miembro-card:hover {
-            transform: translateY(-6px) scale(1.05);
-            border-color: #c41e3a;
-            box-shadow: 0px 0px 25px rgba(196, 30, 58, 0.7);
-        }
+        .empty-state { text-align:center; padding:40px; color:#bbb; font-size:1.2rem; }
 
-        .miembro-card h3 {
-            font-size: 1.7rem;
-            color: #ffffff;
-            margin-bottom: 12px;
-            text-shadow: 0px 0px 10px rgba(255, 50, 80, 0.5);
-        }
-
-        .miembro-card p {
-            color: #c41e3a;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .miembro-card small {
-            color: #d4d4d4;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            display: block;
-            margin-top: 14px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(196, 30, 58, 0.4);
-        }
-
-        .badge-activo,
-        .badge-ex {
-            padding: 8px 14px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
-            letter-spacing: 1px;
-            margin-top: 12px;
-        }
-
-        .badge-activo {
-            background: linear-gradient(90deg, #28a745, #3ecf5a);
-            color: black;
-            box-shadow: 0px 0px 10px rgba(40, 167, 69, 0.5);
-        }
-
-        .badge-ex {
-            background: linear-gradient(90deg, #555, #777);
-            color: #ffffff;
-            box-shadow: 0px 0px 8px rgba(150, 150, 150, 0.4);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #bbb;
-            font-size: 1.2rem;
-        }
-
-        /* ========================= FOOTER ========================= */
+        /* FOOTER */
         footer {
-            background: rgba(0, 0, 0, 0.85);
-            border-top: 3px solid #c41e3a;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 50px;
-            color: #808080;
-            box-shadow: 0 0 15px rgba(150, 0, 0, 0.4);
+            background: rgba(0,0,0,0.85);
+            border-top:3px solid #c41e3a;
+            padding:20px 0;
+            text-align:center;
+            margin-top:50px;
+            color:#808080;
+            box-shadow:0 0 15px rgba(150,0,0,0.4);
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            header h1 { font-size:2rem; letter-spacing:2px;}
+            nav { display:none; flex-direction:column; }
+            nav.active { display:flex; text-align:center; }
+            nav a { display:block; margin:10px 0; padding:10px 0;}
+            .menu-toggle { display:flex;}
+            .container { padding:15px;}
+            .section { padding:20px;}
+            .section h2 { font-size:2rem;}
+            .banda-info p { font-size:1rem;}
+            .miembro-card h3 { font-size:1.4rem;}
+            .miembro-card p { font-size:1rem;}
+            .miembro-card small { font-size:0.95rem;}
         }
     </style>
 </head>
-
 <body>
 
-<!-- Header -->
 <header>
     <div class="container">
         <h1>🎸 KOLOSSALREMAINS 🎸</h1>
 
+        <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
             <a href="/">Inicio</a>
             <a href="/contacto">Contacto</a>
-
-            <!-- Solo ADMIN -->
-            <a href="/admin/banda" sec:authorize="hasRole('ADMIN')" style="color: #c41e3a; font-weight: bold;">
-                Panel Admin
-            </a>
+            <a href="/admin/banda" sec:authorize="hasRole('ADMIN')" style="color:#c41e3a;font-weight:bold;">Panel Admin</a>
         </nav>
     </div>
 </header>
 
-<!-- Contenido -->
 <div class="container">
 
     <!-- Banda -->
     <div class="section" th:if="${banda != null}">
         <h2>Sobre la Banda</h2>
-
         <div class="banda-info">
             <p><strong>Nombre:</strong> <span th:text="${banda.nombre}">KolossalRemains</span></p>
             <p><strong>Año de Formación:</strong> <span th:text="${banda.anioFormacion}">2020</span></p>
@@ -231,7 +181,6 @@
 
     <div class="section" th:unless="${banda != null}">
         <h2>Sobre la Banda</h2>
-
         <div class="empty-state">
             <p>La información de la banda aún no ha sido configurada.</p>
             <p><a href="/admin/banda" style="color: #c41e3a;">Ir al panel de administración</a></p>
@@ -241,7 +190,6 @@
     <!-- Miembros activos -->
     <div class="section">
         <h2>Miembros Actuales</h2>
-
         <div th:if="${activos != null and !activos.isEmpty()}" class="miembros-grid">
             <div th:each="miembro : ${activos}" class="miembro-card">
                 <h3 th:text="${miembro.nombre}">Nombre</h3>
@@ -250,7 +198,6 @@
                 <div class="badge-activo">ACTIVO</div>
             </div>
         </div>
-
         <div th:unless="${activos != null and !activos.isEmpty()}" class="empty-state">
             <p>No hay miembros activos registrados.</p>
         </div>
@@ -259,7 +206,6 @@
     <!-- Ex miembros -->
     <div class="section" th:if="${ex != null and !ex.isEmpty()}">
         <h2>Ex Miembros</h2>
-
         <div class="miembros-grid">
             <div th:each="miembro : ${ex}" class="miembro-card">
                 <h3 th:text="${miembro.nombre}">Nombre</h3>
@@ -276,7 +222,6 @@
 
 </div>
 
-<!-- Footer -->
 <footer>
     <div class="container">
         <p>&copy; 2020 KolossalRemains - Metal desde el abismo</p>

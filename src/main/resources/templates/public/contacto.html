@@ -33,10 +33,11 @@
         header {
             background: rgba(0, 0, 0, 0.85);
             border-bottom: 4px solid #c41e3a;
-            padding: 35px 0;
+            padding: 35px 20px;
             margin-bottom: 40px;
             box-shadow: 0 0 25px rgba(200, 0, 0, 0.5);
             backdrop-filter: blur(4px);
+            position: relative;
         }
 
         header h1 {
@@ -174,15 +175,99 @@
             color: #808080;
             box-shadow: 0 0 15px rgba(150, 0, 0, 0.4);
         }
+
+        /* ========================= HAMBURGER MENU ========================= */
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            top: 30px;
+            right: 25px;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            background: #c41e3a;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+            }
+
+            nav.active {
+                display: flex;
+                text-align: center;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            input, textarea {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            body {
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<!-- Header -->
 <header>
     <div class="container">
         <h1>🎸 KOLOSSALREMAINS 🎸</h1>
+
+        <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
             <a href="/">Inicio</a>
             <a href="/contacto">Contacto</a>
@@ -190,9 +275,7 @@
     </div>
 </header>
 
-<!-- Contenido -->
 <div class="container">
-
     <!-- Mensaje de éxito -->
     <div th:if="${param.ok}" class="alert-success">
         ✓ ¡Mensaje enviado correctamente! Te responderemos pronto.
@@ -231,7 +314,6 @@
             <button type="submit" class="btn">Enviar Mensaje</button>
         </form>
     </div>
-
 </div>
 
 <footer>
